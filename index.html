@@ -4,24 +4,92 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16x16.png">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
     <title>Marketing | BM</title>
 </head>
 <body>
     <header>
         <div class="logo">
-            LOGO
+            Ótica Soares
         </div>
-        <nav>
-            <a class="navLink" href="#">Inicio</a>
-            <a class="navLink" href="#">Lentes Kodak</a>
-            <a class="navLink" href="#">Lentes Varilux</a>
-            <a class="navLink" href="#">Tecnologias</a>
-        </nav>
+        <div onclick="showMenu()" class="menu-toggle" id="menu-toggle">&#9776;</div>
+            <nav class="menu-desktop">
+                <a class="navLink" href="#">Lentes Kodak</a>
+                <a class="navLink" href="#">Lentes Varilux</a>
+                <a class="navLink" href="#">Tecnologias</a>
+                <a class="navLink" href="#">Armações</a>
+            </nav>
     </header>
+    <nav class="menu-mobile" id="menu-mobile">
+        <a class="navLink" href="#">Lentes Kodak</a>
+        <a class="navLink" href="#">Lentes Varilux</a>
+        <a class="navLink" href="#">Tecnologias</a>
+        <a class="navLink" href="#">Armações</a>
+    </nav>
 
-    <section id="lnsKodak">
+    <section id="apresentacao">
+        <div class="tituloApr">
+            <h1>Seja bem vindo ao seu auxiliar de vendas!</h1>
+            <h4>Aqui você poderá:</h4>
+        </div>
+        <div class="menu-cards">
+            <div class="card">
+                <div class="tituloCard">Campos de visão</div>
+                <div class="imgCard"><span class="material-symbols-outlined">
+                    eye_tracking
+                    </span></div>
+                <div class="descCard">Com esse sistema você poderá ver as diferenças de 2 tipos de lentes distintas</div>
+            </div>
 
+            <div class="card">
+                <div class="tituloCard">Tecnologias</div>
+                <div class="imgCard"><span class="material-symbols-outlined">
+                    language
+                    </span></div>
+                <div class="descCard">Analisar e descrever os diferentes tipos de tecnologias de cada lente</div>
+            </div>
+
+            <div class="card">
+                <div class="tituloCard">Armações</div>
+                <div class="imgCard"><span class="material-symbols-outlined">
+                    eyeglasses
+                    </span></div>
+                <div class="descCard">O sistema inclui uma função de comparar 2 fotos do cliente armações</div>
+            </div>
+        </div>
     </section>
 
+    <section id="lensKodak">
+        <embed src="assets/pdf/tabela multifocal kodak.pdf" width="100%" height="600px" type="application/pdf">
+    </section>
+
+
+    
+    <section id="tecNanoptix">
+        <h1 class="tituloTecNano">Tecnologia Nanoptix</h1>
+        <div class="comparison-container">
+            <!-- Imagem da direita (plano de fundo) -->
+            <img src="assets/images/escada-normal.jpeg" alt="Imagem Direita">
+            
+            <!-- Imagem da esquerda (sobreposição) -->
+            <div class="comparison-overlay" id="overlay">
+                <img src="assets/images/escada-distorcida.png" alt="Imagem Esquerda">
+            </div>
+        
+            <!-- Controle deslizante -->
+            <div class="slider" id="slider"></div>
+        </div>
+        <div class="comparativo">
+            <h2>Sem a Tecnologia</h2>
+            <h2>Com a Tecnologia Nanoptix</h2>
+        </div>
+
+    </section>
+<script src="assets/js/script.js"></script>
 </body>
 </html>
