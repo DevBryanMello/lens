@@ -7,7 +7,7 @@
     --font-size: 18px;
 }
 *{
-    font-family: 'Montserrat', sans-serif;
+    font-family: Noto Sans, sans-serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -59,6 +59,89 @@ header{
     background-color: var(--primary-font-color);
     font-size: 20px;
     border-radius: 8px;
+}
+
+#apresentacao{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.tituloApr {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 30px 0px;
+    font-size: 20px;
+}
+.menu-cards{
+    width: 75%;
+    height: 400px;
+    border-radius: 20px;
+    background-color: var(--primary-background-color);
+    box-shadow: var(--box-shadow);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.card{
+    width: 25%;
+    padding: 5px;
+    height: 300px;
+    border-radius: 16px;
+    box-shadow: var(--box-shadow);
+    background-color: #fbfbfb;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    text-align: center;
+}
+.tituloCard{
+    font-size: 20px;
+    font-weight: 600;
+}
+.imgCard span {
+    font-size: 80px;
+    color: var(--primary-background-color);
+}
+
+#lensKodak{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 20px 0px;
+}
+#lensVarilux{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+#lensVarilux img {
+    width: 250px;
+    margin: 15px;
+}
+#tecNanoptix{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgb(2,0,36,1) 100%);
+}
+.tituloTecNano{
+    font-size: 28px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    color: var(--primary-font-color);
 }
 
 /*Sistema de comparação da tecnologia Nanoptix */
@@ -141,76 +224,6 @@ header{
 }
 
 /* Fim da tecnologia Nanoptix */
-#apresentacao{
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-.tituloApr {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    margin: 20px;
-    font-size: 20px;
-}
-.menu-cards{
-    width: 75%;
-    height: 400px;
-    border-radius: 20px;
-    background-color: var(--primary-background-color);
-    box-shadow: var(--box-shadow);
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-}
-.card{
-    width: 25%;
-    padding: 5px;
-    height: 300px;
-    border-radius: 16px;
-    box-shadow: var(--box-shadow);
-    background-color: #fbfbfb;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
-    text-align: center;
-}
-.tituloCard{
-    font-size: 20px;
-    font-weight: 600;
-}
-.imgCard span {
-    font-size: 80px;
-    color: var(--primary-background-color);
-}
-
-#lensKodak{
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    margin: 20px 0px;
-}
-#tecNanoptix{
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    background-color: var(--primary-background-color);
-}
-.tituloTecNano{
-    font-size: 28px;
-    margin-bottom: 20px;
-    margin-top: 20px;
-    color: var(--primary-font-color);
-}
 @media screen and (max-width: 885px){
     .menu-desktop{
         display: none;
