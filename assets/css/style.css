@@ -1,3 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@font-face {
+    font-family: "Hurme Geometric Sans";
+    src: url(../fonts/HurmeGeometricSans4-SemiBold.ttf);
+}
 :root{
     --primary-background-color: #1f1f1f;
     --secundary-background-color: #f0f8ff;
@@ -7,7 +13,7 @@
     --font-size: 18px;
 }
 *{
-    font-family: Noto Sans, sans-serif;
+    font-family: "Poppins", sans-serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -76,12 +82,13 @@ header{
     align-items: center;
     margin: 30px 0px;
     font-size: 20px;
+    text-align: center;
 }
 .menu-cards{
     width: 75%;
-    height: 400px;
     border-radius: 20px;
-    background-color: var(--primary-background-color);
+    padding: 40px 20px;
+    background-image: linear-gradient(45deg, rgba(187, 187, 187,0.04) 0%, rgba(187, 187, 187,0.04) 50%,rgba(86, 86, 86,0.04) 50%, rgba(86, 86, 86,0.04) 100%),linear-gradient(135deg, rgba(166, 166, 166,0.04) 0%, rgba(166, 166, 166,0.04) 50%,rgba(92, 92, 92,0.04) 50%, rgba(92, 92, 92,0.04) 100%),linear-gradient(90deg, rgb(20,20,20),rgb(20,20,20)); background-size: 142px 142px;
     box-shadow: var(--box-shadow);
     display: flex;
     justify-content: space-around;
@@ -117,25 +124,157 @@ header{
     flex-direction: column;
     margin: 20px 0px;
 }
+
 #lensVarilux{
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    background-image: radial-gradient(circle at center center, rgb(71, 71, 71),rgb(8, 8, 8));
+}
+.cabecalhoVarilux{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+.cabecalhoVarilux h1{
+    font-size: 28px;
+    text-align: center;
+    color: var(--primary-font-color);
+}
+.cabecalhoVarilux span {
+    text-transform: lowercase;
+    font-family: "Hurme Geometric Sans";
+    font-weight: 600;
+}
+.bodyVarilux{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.bodyVarilux ul{
     display: flex;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
 }
-#lensVarilux img {
-    width: 250px;
+.bodyVarilux li {
+    list-style: none;
     margin: 15px;
+    padding: 10px;
+    background-color: var(--primary-font-color);
+    cursor: pointer;
+    font-weight: 600;
+    border-radius: 8px;
+    font-family: "Hurme Geometric Sans";
 }
+.demoLente{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+.imgLente {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.imgLente img {
+    width: 250px;
+    margin: 15px 0px;
+}
+.tituloDescVarilux{
+    font-size: 26px;
+    color: var(--secundary-font-color);
+    text-align: center;
+    margin-bottom: 25px;
+}
+.infoLente{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 50%;
+}
+.descLente{
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: var(--primary-font-color);
+}
+.tecnologiasLente{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.tecnologiasLente img{
+    margin: 5px;
+    width:120px;
+}
+.containerTecnologias{
+    width: 100%;
+    background-color: var(--primary-background-color);
+    margin: 20px 0px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.tituloContTec{
+    font-size: 28px;
+    width: 100%;
+    text-align: center;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-top: 20px;
+    color: var(--secundary-font-color);
+    font-family: "Hurme Geometric Sans";
+}
+.cardTec{
+    width: 250px;
+    padding: 10px;
+    background-color: var(--primary-font-color);
+    box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.2);
+    margin: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 10px;
+}
+.titleTecno{
+    width: 100%;
+    text-align: center;
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+.imagesTecnologias{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.imagesTecnologias img{
+    margin-bottom: 10px;
+    width: 120px;
+}
+.descTec{
+    width: 100%;
+    text-align: center;
+}
+
+
 #tecNanoptix{
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    background: rgb(2,0,36);
-    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgb(2,0,36,1) 100%);
+    background-image: linear-gradient(90deg, rgb(33,33,33) 0%,transparent 59%),repeating-linear-gradient(45deg, rgba(168, 168, 168,0.1) 0px, rgba(168, 168, 168,0.1) 1px,transparent 1px, transparent 13px),repeating-linear-gradient(135deg, rgba(168, 168, 168,0.1) 0px, rgba(168, 168, 168,0.1) 1px,transparent 1px, transparent 13px),linear-gradient(90deg, rgb(33,33,33),rgb(33,33,33));
 }
 .tituloTecNano{
     font-size: 28px;
@@ -237,11 +376,36 @@ header{
     .logo{
         width: 250px;
     }
+    .menu-cards{
+        width: 80%;
+        flex-direction: column;
+    }
+    .imgCard span {
+        font-size: 60px;
+    }
+    .card{
+        width: 50%;
+        margin: 15px;
+    }
+
 }
 @media screen and (max-width: 590px){
     .comparison-container{
         width: 400px;
         height: 320px;
+    }
+    .demoLente{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .infoLente{
+        width: 100%;
+    }
+    
+    .card{
+        width: 75%;
+        margin: 15px;
     }
 }
 @media screen and (max-width:425px){
