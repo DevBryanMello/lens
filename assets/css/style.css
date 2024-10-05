@@ -361,8 +361,36 @@ header{
     font-weight: 600;
     font-size: 16px;
 }
-
 /* Fim da tecnologia Nanoptix */
+
+
+.image-comparator {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+}
+
+.image-container {
+    width: 45%;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.image-container img {
+    max-width: 100%;
+    height: auto;
+    border: 1px solid #ddd;
+    margin-top: 10px;
+}
+
+input[type="file"] {
+    margin-top: 10px;
+}
+
+
 @media screen and (max-width: 885px){
     .menu-desktop{
         display: none;
@@ -402,15 +430,37 @@ header{
     .infoLente{
         width: 100%;
     }
-    
     .card{
         width: 75%;
         margin: 15px;
     }
+    .image-comparator{
+        flex-direction: column;
+    }
+    .image-container {
+        width: 85%;
+    }
+    .image-container input {
+        width: 250px;
+        padding: 15px;
+    }
+    
 }
 @media screen and (max-width:425px){
     .comparison-container{
         width: 85%;
         height: 320px;
     }
+    
+    .image-comparator{
+        flex-direction: column;
+    }
+    .image-container {
+        width: 85%;
+    }
+    .image-container input {
+        width: 250px;
+        padding: 15px;
+    }
+    
 }

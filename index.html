@@ -20,15 +20,15 @@
         <div onclick="showMenu()" class="menu-toggle" id="menu-toggle">&#9776;</div>
             <nav class="menu-desktop">
                 <a class="navLink" href="#">Lentes Kodak</a>
-                <a class="navLink" href="#">Lentes Varilux</a>
-                <a class="navLink" href="#">Tecnologias</a>
+                <a class="navLink" href="#lensVarilux">Lentes Varilux</a>
+                <a class="navLink" href="#tecnologiasInfos">Tecnologias</a>
                 <a class="navLink" href="#">Armações</a>
             </nav>
     </header>
     <nav class="menu-mobile" id="menu-mobile">
         <a class="navLink" href="#">Lentes Kodak</a>
-        <a class="navLink" href="#">Lentes Varilux</a>
-        <a class="navLink" href="#">Tecnologias</a>
+        <a class="navLink" href="#lensVarilux">Lentes Varilux</a>
+        <a class="navLink" href="#tecnologiasInfos">Tecnologias</a>
         <a class="navLink" href="#">Armações</a>
     </nav>
 
@@ -200,6 +200,23 @@
             <div class="slider" id="slider"></div>
         </div>
     </section>
+
+    <section id="armacoes">
+        <div class="image-comparator">
+            <div class="image-container">
+                <h3>Imagem 1</h3>
+                <input type="file" accept="image/*" capture="camera" id="imageUpload1">
+                <img id="image1" src="" alt="Image 1">
+            </div>
+            <div class="image-container">
+                <h3>Imagem 2</h3>
+                <input type="file" accept="image/*" capture="camera" id="imageUpload2">
+                <img id="image2" src="" alt="Image 2">
+            </div>
+        </div>
+    </section>
+
+
 <script src="assets/js/script.js"></script>
 </body>
 </html>

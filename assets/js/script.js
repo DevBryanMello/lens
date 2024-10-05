@@ -111,3 +111,27 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+
+// Função para carregar a imagem nos elementos <img>
+function loadImage(event, imgElementId) {
+    const imgElement = document.getElementById(imgElementId); // Seleciona o elemento de imagem pelo ID
+    const file = event.target.files[0]; // Obtém o arquivo de imagem selecionado
+    const reader = new FileReader(); // Cria uma nova instância de FileReader para ler o conteúdo do arquivo
+    
+    reader.onload = function(e) { // Executa uma função quando a leitura é concluída
+        imgElement.src = e.target.result; // Define o conteúdo lido como a fonte (src) da imagem
+    };
+    
+    if (file) { // Verifica se há um arquivo selecionado
+        reader.readAsDataURL(file); // Lê o conteúdo do arquivo como uma URL codificada em base64
+    }
+}
+
+// Listeners para os inputs
+document.getElementById('imageUpload1').addEventListener('change', function(event) {
+    loadImage(event, 'image1'); // Chama a função loadImage para a primeira imagem
+});
+
+document.getElementById('imageUpload2').addEventListener('change', function(event) {
+    loadImage(event, 'image2'); // Chama a função loadImage para a segunda imagem
+});
