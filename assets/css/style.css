@@ -177,6 +177,18 @@ header{
     justify-content: space-around;
     margin-bottom: 20px;
 }
+#btnComparar{
+    width: 150px;
+    max-height: fit-content;
+    padding: 5px;
+    margin: 10px;
+    margin-top: 0px;
+    border: none;
+    background-color: var(--primary-font-color);
+    border-radius: 6px;
+    outline: none;
+    cursor: pointer;
+}
 .imgLente {
     width: 50%;
     display: flex;
@@ -363,7 +375,13 @@ header{
 }
 /* Fim da tecnologia Nanoptix */
 
-
+#armacoes{
+    width: 100%;
+}
+#armacoes h1 {
+    text-align: center;
+    margin-top: 10px;
+}
 .image-comparator {
     display: flex;
     justify-content: center;
@@ -389,7 +407,29 @@ header{
 input[type="file"] {
     margin-top: 10px;
 }
+ /* Ocultar o input file */
+.image-container input[type="file"] {
+    display: none; /* Esconde o input */
+}
 
+/* Botão personalizado */
+.image-container button {
+    display: inline-block;
+    padding: 10px 15px;
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-bottom: 10px; /* Espaço entre botão e imagem */
+    transition: background-color 0.3s;
+}
+
+/* Efeito hover no botão */
+.image-container button:hover {
+    background-color: #45a049;
+}
 
 @media screen and (max-width: 885px){
     .menu-desktop{

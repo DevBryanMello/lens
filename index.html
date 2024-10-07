@@ -22,14 +22,16 @@
                 <a class="navLink" href="#">Lentes Kodak</a>
                 <a class="navLink" href="#lensVarilux">Lentes Varilux</a>
                 <a class="navLink" href="#tecnologiasInfos">Tecnologias</a>
-                <a class="navLink" href="#">Armações</a>
+                <a class="navLink" href="#tratamentos">Tratamentos</a>
+                <a class="navLink" href="#armacoes">Armações</a>
             </nav>
     </header>
     <nav class="menu-mobile" id="menu-mobile">
         <a class="navLink" href="#">Lentes Kodak</a>
         <a class="navLink" href="#lensVarilux">Lentes Varilux</a>
         <a class="navLink" href="#tecnologiasInfos">Tecnologias</a>
-        <a class="navLink" href="#">Armações</a>
+        <a class="navLink" href="#tratamentos">Tratamentos</a>
+        <a class="navLink" href="#armacoes">Armações</a>
     </nav>
 
     <section id="apresentacao">
@@ -107,6 +109,7 @@
             </ul>
         </div>
         <div class="demoLente">
+            <button id="btnComparar">Comparar Lentes</button>
             <div class="imgLente">
                 <img  id="lenteImg" alt="">
             </div>
@@ -202,14 +205,17 @@
     </section>
 
     <section id="armacoes">
+        <h1>Comparador de armações</h1>
         <div class="image-comparator">
             <div class="image-container">
                 <h3>Imagem 1</h3>
-                <input type="file" accept="image/*" capture="camera" id="imageUpload1">
+                <button type="button" onclick="document.getElementById('imageUpload1').click()">Selecionar Arquivo</button>
+                <input type="file" name="input" accept="image/*" capture="camera" id="imageUpload1">
                 <img id="image1" src="" alt="Image 1">
             </div>
             <div class="image-container">
                 <h3>Imagem 2</h3>
+                <button type="button" onclick="document.getElementById('imageUpload2').click()">Selecionar Arquivo</button>
                 <input type="file" accept="image/*" capture="camera" id="imageUpload2">
                 <img id="image2" src="" alt="Image 2">
             </div>

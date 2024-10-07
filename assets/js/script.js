@@ -63,6 +63,7 @@ const slider = document.getElementById('slider');
         slider.style.left = `${x}px`;
     });
 
+    
     const listItems = document.querySelectorAll('.bodyVarilux ul li');
     const lenteImg = document.getElementById('lenteImg');
     const lenteTitle = document.getElementById('lenteTitle');
@@ -112,26 +113,23 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-// Função para carregar a imagem nos elementos <img>
-function loadImage(event, imgElementId) {
-    const imgElement = document.getElementById(imgElementId); // Seleciona o elemento de imagem pelo ID
-    const file = event.target.files[0]; // Obtém o arquivo de imagem selecionado
-    const reader = new FileReader(); // Cria uma nova instância de FileReader para ler o conteúdo do arquivo
-    
-    reader.onload = function(e) { // Executa uma função quando a leitura é concluída
-        imgElement.src = e.target.result; // Define o conteúdo lido como a fonte (src) da imagem
-    };
-    
-    if (file) { // Verifica se há um arquivo selecionado
-        reader.readAsDataURL(file); // Lê o conteúdo do arquivo como uma URL codificada em base64
+ // Função para exibir a imagem selecionada
+ function displayImage(input, imageElementId) {
+    if (input.files && input.files[0]) {
+        const reader = new FileReader();
+        reader.onload = function (e) {
+            document.getElementById(imageElementId).src = e.target.result;
+        };
+        reader.readAsDataURL(input.files[0]); // Ler o conteúdo do arquivo selecionado
     }
 }
 
-// Listeners para os inputs
-document.getElementById('imageUpload1').addEventListener('change', function(event) {
-    loadImage(event, 'image1'); // Chama a função loadImage para a primeira imagem
+// Adicionar evento de mudança para exibir a imagem no primeiro input
+document.getElementById('imageUpload1').addEventListener('change', function () {
+    displayImage(this, 'image1');
 });
 
-document.getElementById('imageUpload2').addEventListener('change', function(event) {
-    loadImage(event, 'image2'); // Chama a função loadImage para a segunda imagem
+// Adicionar evento de mudança para exibir a imagem no segundo input
+document.getElementById('imageUpload2').addEventListener('change', function () {
+    displayImage(this, 'image2');
 });
