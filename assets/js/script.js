@@ -63,57 +63,84 @@ const slider = document.getElementById('slider');
         slider.style.left = `${x}px`;
     });
 
-    
-    const listItems = document.querySelectorAll('.bodyVarilux ul li');
-    const lenteImg = document.getElementById('lenteImg');
-    const lenteTitle = document.getElementById('lenteTitle');
-    const lenteDesc = document.getElementById('lenteDesc');
-    const lenteTec = document.getElementById('lenteTec');
+    document.addEventListener('DOMContentLoaded', () => {
+        // Seleção de elementos
+        const listItems = document.querySelectorAll('.bodyVarilux ul li');
+        const lenteImg1 = document.getElementById('lenteImg1');
+        const lenteImg2 = document.getElementById('lenteImg2');
+        const lenteTitle = document.getElementById('lenteTitle');
+        const lenteDesc = document.getElementById('lenteDesc');
+        const lenteTecContainer = document.getElementById('lenteTec');
+        const compareButton = document.getElementById('btnComparar');
 
-// Certifique-se de que o script é executado após o DOM estar carregado
-document.addEventListener('DOMContentLoaded', () => {
-    const listItems = document.querySelectorAll('.bodyVarilux ul li');
-    const lenteImg = document.getElementById('lenteImg');
-    const lenteTitle = document.getElementById('lenteTitle');
-    const lenteDesc = document.getElementById('lenteDesc');
-    const lenteTecContainer = document.getElementById('lenteTec'); // Contêiner das tecnologias
+        let firstLensSelected = false;  // Controla se a primeira lente já foi selecionada
+        let compareModeActive = false;  // Controla se o modo de comparação está ativo
 
-    // Adiciona um evento de clique para cada item da lista
-    listItems.forEach(item => {
-        item.addEventListener('click', () => {
-            // Obtém os valores dos atributos data-* do item clicado
-            const imgSrc = item.getAttribute('data-img');
-            const title = item.getAttribute('data-title');
-            const desc = item.getAttribute('data-desc');
-            const tecImages = item.getAttribute('data-tec'); // Imagens das tecnologias
+        // Função para exibir as informações da lente
+        function showLens(imgSrc, title, desc, tecImages) {
+            if (!firstLensSelected || !compareModeActive) {
+                // Exibir a primeira lente
+                lenteImg1.src = imgSrc;
+                lenteImg1.style.display = 'block';
+                lenteImg2.style.display = 'none';
+                firstLensSelected = true;
 
-            // Atualiza a imagem principal da lente
-            lenteImg.src = imgSrc;
+                // Atualizar informações da primeira lente
+                lenteTitle.textContent = title;
+                lenteDesc.textContent = desc;
 
-            // Atualiza o título e descrição
-            lenteTitle.textContent = title;
-            lenteDesc.textContent = desc;
+                // Atualizar tecnologias
+                lenteTecContainer.innerHTML = ''; // Limpar tecnologias anteriores
+                if (tecImages) {
+                    const tecList = tecImages.split(',');
+                    tecList.forEach(tecSrc => {
+                        const imgElement = document.createElement('img');
+                        imgElement.src = tecSrc.trim();
+                        imgElement.alt = `Tecnologia da Lente: ${title}`;
+                        imgElement.classList.add('imgTecnologia'); // Classe CSS para estilização
+                        lenteTecContainer.appendChild(imgElement);
+                    });
+                }
+            } else {
+                // Exibir a segunda lente ao lado da primeira
+                lenteImg2.src = imgSrc;
+                lenteImg2.style.display = 'block';
+            }
+        }
 
-            // Limpa o contêiner de tecnologias (caso haja imagens anteriores)
-            lenteTecContainer.innerHTML = '';
+        // Evento para alternar o modo de comparação
+        compareButton.addEventListener('click', () => {
+            const infoLente = document.querySelector('.infoLente');
+            const lensDisplay = document.querySelector('.demoLente');
+            infoLente.style.display = 'none';
+            lensDisplay.classList.toggle('compare-mode');
 
-            // Verifica se há imagens de tecnologias e adiciona ao contêiner
-            if (tecImages) {
-                // Separa as imagens por vírgula e adiciona cada uma delas como um novo elemento <img>
-                const tecList = tecImages.split(',');
-                tecList.forEach(tecSrc => {
-                    const imgElement = document.createElement('img');
-                    imgElement.src = tecSrc.trim(); // Remove possíveis espaços extras
-                    imgElement.alt = `Tecnologia da Lente: ${title}`;
-                    imgElement.classList.add('imgTecnologia'); // Adiciona uma classe para estilo, se necessário
-                    lenteTecContainer.appendChild(imgElement);
-                });
+            compareModeActive = !compareModeActive;
+
+            // Resetar seleção de lentes ao desativar comparação
+            if (!compareModeActive) {
+                lenteImg2.style.display = 'none';
+                infoLente.style.display = 'flex';
+                firstLensSelected = false;
             }
         });
-    });
-});
 
- // Função para exibir a imagem selecionada
+        // Evento para cada item da lista
+        listItems.forEach(item => {
+            item.addEventListener('click', () => {
+                // Recuperar atributos do item clicado
+                const imgSrc = item.getAttribute('data-img');
+                const title = item.getAttribute('data-title');
+                const desc = item.getAttribute('data-desc');
+                const tecImages = item.getAttribute('data-tec'); // Imagens das tecnologias
+
+                // Exibir lente com base nos dados recuperados
+                showLens(imgSrc, title, desc, tecImages);
+            });
+        });
+    });
+
+ // Função para exibir a imagem selecionada no comparador de armações
  function displayImage(input, imageElementId) {
     if (input.files && input.files[0]) {
         const reader = new FileReader();
@@ -133,3 +160,7 @@ document.getElementById('imageUpload1').addEventListener('change', function () {
 document.getElementById('imageUpload2').addEventListener('change', function () {
     displayImage(this, 'image2');
 });
+
+
+
+
