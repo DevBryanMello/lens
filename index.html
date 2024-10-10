@@ -15,7 +15,7 @@
 <body>
     <header>
         <div class="logo">
-            Ótica Soares
+           <a href="index.html">Ótica Soares</a> 
         </div>
         <div onclick="showMenu()" class="menu-toggle" id="menu-toggle">&#9776;</div>
             <nav class="menu-desktop">
@@ -252,6 +252,36 @@
                 <input type="file" accept="image/*" capture="camera" id="imageUpload2">
                 <img id="image2" src="" alt="Image 2">
             </div>
+        </div>
+    </section>
+
+    <section id="cliente">
+        <div class="container orcamentos">
+            <h1>Orçamentos de Clientes</h1>
+            <form id="orcamentoForm">
+                <input class="inp" type="text" id="nome" placeholder="Nome do Cliente" required>
+                <input class="inp" type="tel" id="telefone" placeholder="Telefone do Cliente" required oninput="mascaraTelefone(this)">
+                <input class="inp" type="text" id="orcamento" placeholder="O que foi orçado" required>
+                <button class="inpBtn" type="button" onclick="salvarOrcamento()">Salvar Orçamento</button>
+            </form>
+    
+            <div class="buttons">
+                <button class="btnExibe" onclick="exibirOrcamentos()">Exibir Orçamentos</button>
+                <button class="btnOculta" onclick="ocultarOrcamentos()">Ocultar Orçamentos</button>
+            </div>
+    
+            <table id="orcamentosTable" style="display: none;">
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th class="thFone">Telefone</th>
+                        <th>Orçamento</th>
+                    </tr>
+                </thead>
+                <tbody id="orcamentosBody">
+
+                </tbody>
+            </table>
         </div>
     </section>
 
