@@ -66,6 +66,10 @@ header{
     font-size: 20px;
     border-radius: 8px;
 }
+.logo a {
+    text-decoration: none;
+    color: var(--primary-background-color);
+}
 
 #apresentacao{
     width: 100%;
@@ -463,6 +467,82 @@ input[type="file"] {
 .image-container button:hover {
     background-color: #45a049;
 }
+#cliente{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+.container {
+    width: 85%;
+    max-width: 800px;
+    margin: 0 auto;
+    margin-bottom: 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.inp, .inpBtn {
+    outline: none;
+    padding: 10px;
+    font-size: 16px;
+}
+.inpBtn{
+    background-color: #4CAF50;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    color: var(--primary-font-color);
+    transition: linear 0.2s;
+}
+.inpBtn:hover{
+    background-color: #45a049;
+}
+.buttons {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+.buttons button {
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+}
+.btnExibe{
+    background-color: #0065eb;
+    color: var(--primary-font-color);
+    border: none;
+    outline: none;
+}
+.btnOculta {
+    background-color: #dedede;
+    border: none;
+    outline: none;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+}
+.thFone{
+    width: 180px;
+}
 
 @media screen and (max-width: 885px){
     .menu-desktop{
@@ -542,6 +622,24 @@ input[type="file"] {
     .image-container input {
         width: 250px;
         padding: 15px;
+    }   
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+        font-size: 14px;
     }
+
+    table, th, td {
+        border: 1px solid #ddd;
+    }
+
+    th, td {
+        padding: 10px;
+        text-align: left;
+    }   
     
+    .thFone{
+        width: 100px;
+    }
 }

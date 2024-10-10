@@ -162,5 +162,82 @@ document.getElementById('imageUpload2').addEventListener('change', function () {
 });
 
 
+ // Função para salvar o orçamento no localStorage
+ function salvarOrcamento() {
+    // Pega os valores dos inputs
+    const nome = document.getElementById('nome').value;
+    const telefone = document.getElementById('telefone').value;
+    const orcamento = document.getElementById('orcamento').value;
 
+    // Cria um objeto com os dados do cliente
+    const cliente = { nome, telefone, orcamento };
+
+    // Recupera os orçamentos existentes no localStorage ou cria um novo array vazio
+    let orcamentos = JSON.parse(localStorage.getItem('orcamentos')) || [];
+
+    // Adiciona o novo cliente ao array de orçamentos
+    orcamentos.push(cliente);
+
+    // Salva o array atualizado no localStorage
+    localStorage.setItem('orcamentos', JSON.stringify(orcamentos));
+
+    // Limpa o formulário
+    document.getElementById('orcamentoForm').reset();
+
+    alert('Orçamento salvo com sucesso!');
+}
+
+// Função para exibir os orçamentos salvos
+function exibirOrcamentos() {
+    // Recupera os orçamentos do localStorage
+    const orcamentos = JSON.parse(localStorage.getItem('orcamentos')) || [];
+
+    // Referência ao corpo da tabela
+    const orcamentosBody = document.getElementById('orcamentosBody');
+    orcamentosBody.innerHTML = '';
+
+    // Itera sobre os orçamentos e cria as linhas da tabela
+    orcamentos.forEach(cliente => {
+        const row = document.createElement('tr');
+        
+        row.innerHTML = `
+            <td>${cliente.nome}</td>
+            <td>${cliente.telefone}</td>
+            <td>${cliente.orcamento}</td>
+        `;
+        
+        orcamentosBody.appendChild(row);
+    });
+
+    // Exibe a tabela se houver dados
+    const orcamentosTable = document.getElementById('orcamentosTable');
+    orcamentosTable.style.display = orcamentos.length ? 'table' : 'none';
+}
+
+// Função para ocultar os orçamentos
+function ocultarOrcamentos() {
+    const orcamentosTable = document.getElementById('orcamentosTable');
+    orcamentosTable.style.display = 'none';
+}
+
+// Função para aplicar a máscara de telefone
+function mascaraTelefone(input) {
+    // Remove qualquer caractere que não seja número
+    let telefone = input.value.replace(/\D/g, '');
+
+    // Limita a quantidade de números para 11 (DDD + 9 dígitos)
+    telefone = telefone.substring(0, 11);
+
+    // Formata o número de acordo com o padrão: (99) 99999 - 9999
+    if (telefone.length > 6) {
+        telefone = telefone.replace(/^(\d{2})(\d{5})(\d{4}).*/, '($1) $2-$3');
+    } else if (telefone.length > 2) {
+        telefone = telefone.replace(/^(\d{2})(\d{0,5})/, '($1) $2');
+    } else {
+        telefone = telefone.replace(/^(\d*)/, '($1');
+    }
+
+    // Atualiza o valor do input com a máscara
+    input.value = telefone;
+}
 
