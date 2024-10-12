@@ -162,3 +162,126 @@ document.getElementById('imageUpload2').addEventListener('change', function () {
 });
 
 
+function submitForm(e) {
+    // Obtém os valores dos campos do formulário
+const data = {
+    nome: document.getElementById('nome').value,
+    telefone: document.getElementById('telefone').value,
+    why: document.getElementById('why').value,
+    type: document.getElementById('type').value,
+    hash: 'hash_93867748421653f930d1fec5f38b0f6b'
+};
+
+// Converte os dados para o formato application/x-www-form-urlencoded
+const postData = new URLSearchParams(data).toString();
+
+// URL da API
+const url = 'https://meubannersites.com.br/api/bryan/v1/serialize';
+
+// Faz a requisição POST
+fetch(url, {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/x-www-form-urlencoded'
+    },
+    body: postData
+})
+.then(response => response.json()) // Converte a resposta para JSON
+.then(json => {
+    
+    console.log(json.data);
+
+    if (data.type === 'getfull') {
+        // Exibir todos os clientes no caso de 'getfull'
+        displayClientes(json.data);
+    } else {
+        // Exibe a resposta da ação no console (para debug)
+        console.log(json);
+    }
+    // Você pode manipular o JSON aqui, por exemplo, exibir em algum lugar da página
+})
+.catch(error => {
+    console.error('Erro:', error); // Exibe erros no console
+});
+
+document.getElementById('myForm').reset();
+
+}
+
+function displayClientes(clientes){
+    const bodyTabela = document.getElementById("clientesbodyTabela");
+    bodyTabela.innerHTML = '';
+
+    clientes.forEach(cliente => {
+        const coluna = document.createElement('tr');
+        coluna.innerHTML = `
+            <td>${cliente.nome}</td>
+            <td>${cliente.telefone}</td>
+            <td>${cliente.why}</td>
+            <td><a class='btnExcluir' href='Deletar.html?ref=${cliente.idClient}'>Excluir</a href=></td>
+        `;
+        clientesbodyTabela.appendChild(coluna);
+    });
+
+}
+
+function editarBtn(){
+    const tipoSelect = document.getElementById('type').value;
+    const id = document.getElementById('clientesEdit');
+    if(tipoSelect == 'edit'){
+        id.style.display = 'flex';    
+        editarInfo();
+    }else {
+        id.style.display = 'none';
+    }
+}
+
+function editarInfo(){
+    const data = {
+        type:'getfull',
+        hash: 'hash_93867748421653f930d1fec5f38b0f6b'
+    };
+    // Converte os dados para o formato application/x-www-form-urlencoded
+    const postData = new URLSearchParams(data).toString();
+
+    // URL da API
+    const url = 'https://meubannersites.com.br/api/bryan/v1/serialize';
+
+    // Faz a REQUISIÇÃO POST
+    fetch(url, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        body: postData
+    })
+    .then(response => response.json()) // Converte a resposta para JSON
+    .then(json => {
+        // Você pode manipular o JSON aqui, por exemplo, exibir em algum lugar da página
+ 
+        const bodyTabela = document.getElementById("clientesEdit");
+        bodyTabela.innerHTML = '';
+    
+        json.data.forEach(c => {
+            const coluna = document.createElement('option');
+            coluna.innerHTML = `
+                <option value='${c.idClient}'>${c.nome}</option>
+            `;
+            clientesEdit.appendChild(coluna);
+        });
+    })
+    .catch(error => {
+        console.error('Erro:', error); // Exibe erros no console
+    });
+}
+
+function editarDados(){
+    const tipoSelect = document.getElementById('type').value;
+    const id = document.getElementById('clientesEdit');
+    if(tipoSelect == 'edit'){
+        id.style.display = 'flex';    
+        editarInfo();
+    }else {
+        id.style.display = 'none';
+    }
+}

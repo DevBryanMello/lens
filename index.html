@@ -258,35 +258,37 @@
     <section id="cliente">
         <div class="container orcamentos">
             <h1>Orçamentos de Clientes</h1>
-            <form id="orcamentosForm" method="POST">
-                <label for="nome">Nome:</label>
-                <input class="inp" type="text" id="nome" name="nome" required>
-        
-                <label for="telefone">Telefone:</label>
-                <input class="inp" type="text" id="telefone" name="telefone" required>
-        
-                <label for="why">Motivo:</label>
-                <input class="inp" type="text" id="why" name="why" required>
-        
-                <label for="ref">Referência (ref):</label>
-                <input class="inp" type="text" id="ref" name="ref">
-        
-                <select id="operationType">
+            <form id="myForm" >
+                <input class="inp" type="text" id="nome" name="nome" placeholder="Nome">
+                <input class="inp" type="text" id="telefone" name="telefone" placeholder="Telefone">
+                <input class="inp" type="text" id="why" name="why" placeholder="O que orçou?">
+                <select name="clientes" class="inpSelect" id="clientesEdit" style="display: none;"></select>
+                <select onchange="editarBtn()" class="inpSelect" id="type" name="type">
                     <option value="add">Adicionar</option>
                     <option value="edit">Editar</option>
                     <option value="del">Deletar</option>
                     <option value="getfull">Obter Todos</option>
                     <option value="getid">Obter por ID</option>
                 </select>
-        
-                <button class="inpBtn" type="submit">Enviar</button>
+                <button class="inpBtn" type="button" onclick="submitForm()">Enviar</button>
             </form>
-           
-        </div>
+
+            <table >
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Telefone</th>
+                        <th>Orçamento</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody id="clientesbodyTabela">
+                    
+                </tbody>
+            </table>
     </section>
 
 
 <script src="assets/js/script.js"></script>
-<script src="assets/js/api.js"></script>
 </body>
 </html>
