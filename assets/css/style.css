@@ -127,6 +127,7 @@ header{
     align-items: center;
     flex-direction: column;
     margin: 20px 0px;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 #lensVarilux{
@@ -136,13 +137,20 @@ header{
     margin-top: 20px;
     background-image: radial-gradient(circle at center center, rgb(71, 71, 71),rgb(8, 8, 8));
 }
-.cabecalhoVarilux{
+#lensKodak{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    background-image: radial-gradient(circle at top right, rgb(145, 8, 41) 0%, rgb(145, 8, 41) 22%,rgb(156, 9, 37) 22%, rgb(156, 9, 37) 38%,rgb(167, 9, 34) 38%, rgb(167, 9, 34) 39%,rgb(178, 10, 30) 39%, rgb(178, 10, 30) 43%,rgb(188, 10, 26) 43%, rgb(188, 10, 26) 64%,rgb(199, 11, 22) 64%, rgb(199, 11, 22) 96%,rgb(210, 11, 19) 96%, rgb(210, 11, 19) 99%,rgb(221, 12, 15) 99%, rgb(221, 12, 15) 100%);
+}
+.cabecalhoVarilux, .cabecalhoKodak{
     width: 100%;
     display: flex;
     justify-content: center;
     margin-top: 20px;
 }
-.cabecalhoVarilux h1{
+.cabecalhoVarilux h1, .cabecalhoKodak h1{
     font-size: 28px;
     text-align: center;
     color: var(--primary-font-color);
@@ -152,20 +160,20 @@ header{
     font-family: "Hurme Geometric Sans";
     font-weight: 600;
 }
-.bodyVarilux{
+.bodyVarilux, .bodyKodak{
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     margin-bottom: 20px;
 }
-.bodyVarilux ul{
+.bodyVarilux ul, .bodyKodak ul{
     display: flex;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
 }
-.bodyVarilux li {
+.bodyVarilux li, .bodyKodak li {
     list-style: none;
     margin: 15px;
     padding: 10px;
@@ -315,8 +323,6 @@ header{
     width: 100%;
     text-align: center;
 }
-
-
 #tecNanoptix{
     width: 100%;
     display: flex;
