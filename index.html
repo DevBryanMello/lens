@@ -266,14 +266,13 @@
                 <select onchange="editarBtn()" class="inpSelect" id="type" name="type">
                     <option value="add">Adicionar</option>
                     <option value="edit">Editar</option>
-                    <option value="del">Deletar</option>
                     <option value="getfull">Obter Todos</option>
                     <option value="getid">Obter por ID</option>
                 </select>
                 <button class="inpBtn" type="button" onclick="submitForm()">Enviar</button>
             </form>
 
-            <table >
+            <table id="tabela" style="display: none;">
                 <thead>
                     <tr>
                         <th>Nome</th>
