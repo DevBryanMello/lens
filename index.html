@@ -19,18 +19,16 @@
         </div>
         <div onclick="showMenu()" class="menu-toggle" id="menu-toggle">&#9776;</div>
             <nav class="menu-desktop">
-                <a class="navLink" href="#">Lentes Kodak</a>
-                <a class="navLink" href="#lensVarilux">Lentes Varilux</a>
-                <a class="navLink" href="#tecnologiasInfos">Tecnologias</a>
+                <a class="navLink" href="#lensVarilux">Lentes</a>
                 <a class="navLink" href="#tratamentos">Tratamentos</a>
+                <a class="navLink" href="#tecnologiasInfos">Tecnologias</a>
                 <a class="navLink" href="#armacoes">Armações</a>
             </nav>
     </header>
     <nav class="menu-mobile" id="menu-mobile">
-        <a class="navLink" href="#">Lentes Kodak</a>
-        <a class="navLink" href="#lensVarilux">Lentes Varilux</a>
-        <a class="navLink" href="#tecnologiasInfos">Tecnologias</a>
+        <a class="navLink" href="#lensVarilux">Lentes</a>
         <a class="navLink" href="#tratamentos">Tratamentos</a>
+        <a class="navLink" href="#tecnologiasInfos">Tecnologias</a>
         <a class="navLink" href="#armacoes">Armações</a>
     </nav>
 
@@ -133,7 +131,7 @@
         <div class="bodyKodak">
             <ul>
                 <li data-img="assets/images/lensKodak/kodak_precise_trad.png" 
-                data-title="Kodak Precise Trad"
+                data-title="Kodak Precise Tradicional"
                  data-desc="A lente Kodak Precise Tradicional é uma lente progressiva desenhada para corrigir presbiopia e proporcionar visão nítida em todas as distâncias." 
                  data-tec="">Kodak Precise Trad.
                 </li>
@@ -146,12 +144,12 @@
 
                  <li data-img="assets/images/lensKodak/kodak_network_uhd.png" 
                 data-title="Kodak Network UHD"
-                 data-desc="As lentes Kodak Network são lentes progressivas de entrada, projetadas para pessoas que necessitam de correção visual para a presbiopia, oferecendo uma solução acessível e eficaz. " 
+                 data-desc="As lentes Kodak Network UHD são lentes progressivas de entrada, projetadas para pessoas que necessitam de correção visual para a presbiopia, oferecendo uma solução acessível e eficaz. " 
                  data-tec="">Kodak Network UHD.
                 </li>
 
                  <li data-img="assets/images/lensKodak/kodak_unique_uhd.png" 
-                data-title="Kodak Network UHD"
+                data-title="Kodak Unique UHD"
                  data-desc="As lentes Kodak Unique UHD são indicadas para quem busca o máximo de conforto, precisão e personalização na correção visual, especialmente para usuários de lentes progressivas que valorizam a qualidade de imagem. " 
                  data-tec="">Kodak Unique UHD.
                 </li>
@@ -159,22 +157,27 @@
             </ul>
         </div>
         
-        <button id="btnComparar" class="lens-button">Comparar Lentes</button>
-        <div class="demoLente">
-            <div class="imgLente">
-                <img id="lenteImg1" >
-                <img id="lenteImg2" style="display: none;">
+        <button id="btnCompararKodak" class="lens-button">Comparar Lentes</button>
+        <div class="demoLenteKodak">
+            <div class="imgLenteKodak">
+                <img id="lenteImgKodak1" >
+                <img id="lenteImgKodak2" style="display: none;">
             </div>
-            <div class="infoLente">
-                <div id="lenteTitle" class="tituloDescVarilux"></div>
-                <div class="descLente">
-                    <h3 id="lenteDesc"></h3>
+            <div class="infoLenteKodak">
+                <div id="lenteTitleKodak" class="tituloDescKodak"></div>
+                <div class="descLenteKodak">
+                    <h3 id="lenteDescKodak"></h3>
                     <div id="lenteTec" class="tecnologiasLente"></div>
                 </div>
             </div>
         </div>
 
     </section>
+
+    <section id="tratamentos">
+        
+    </section>
+
 
     <section id="tecnologiasInfos">
         <div class="containerTecnologias">
@@ -285,10 +288,10 @@
                 <select onchange="editarBtn()" class="inpSelect" id="type" name="type">
                     <option value="add">Adicionar</option>
                     <option value="edit">Editar</option>
-                    <option value="getfull">Obter Todos</option>
-                    <option value="getid">Obter por ID</option>
-                </select>
-                <button class="inpBtn" type="button" onclick="submitForm()">Enviar</button>
+                    <option value="getfull">Obter Todos Orçamentos</option>
+                </select> 
+                <button class="inpBtn" type="button"  onclick="submitForm()" id="btnEnviarForm" >Enviar</button>
+                <button class="inpBtn" type="button" id="btnSalvarEdit" onclick="editarDados()" style="display: none;">Salvar</button>
             </form>
 
             <table id="tabela" style="display: none;">

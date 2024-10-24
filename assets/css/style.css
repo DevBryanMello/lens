@@ -120,16 +120,6 @@ header{
     color: var(--primary-background-color);
 }
 
-#lensKodak{
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    margin: 20px 0px;
-    font-family: Arial, Helvetica, sans-serif;
-}
-
 #lensVarilux{
     width: 100%;
     display: flex;
@@ -142,6 +132,7 @@ header{
     display: flex;
     flex-direction: column;
     margin-top: 20px;
+    font-family: Arial, Helvetica, sans-serif !important;
     background-image: radial-gradient(circle at top right, rgb(145, 8, 41) 0%, rgb(145, 8, 41) 22%,rgb(156, 9, 37) 22%, rgb(156, 9, 37) 38%,rgb(167, 9, 34) 38%, rgb(167, 9, 34) 39%,rgb(178, 10, 30) 39%, rgb(178, 10, 30) 43%,rgb(188, 10, 26) 43%, rgb(188, 10, 26) 64%,rgb(199, 11, 22) 64%, rgb(199, 11, 22) 96%,rgb(210, 11, 19) 96%, rgb(210, 11, 19) 99%,rgb(221, 12, 15) 99%, rgb(221, 12, 15) 100%);
 }
 .cabecalhoVarilux, .cabecalhoKodak{
@@ -183,13 +174,13 @@ header{
     border-radius: 8px;
     font-family: "Hurme Geometric Sans";
 }
-.demoLente{
+.demoLente, .demoLenteKodak{
     width: 100%;
     display: flex;
     justify-content: space-around;
     margin-bottom: 20px;
 }
-#btnComparar{
+#btnComparar, #btnCompararKodak{
     width: 180px;
     max-height: fit-content;
     padding: 10px;
@@ -205,16 +196,16 @@ header{
     font-size: 16px;
 }
 /* Estilo para quando a comparação estiver ativada */
-.compare-mode .imgLente {
+.compare-mode .imgLente, .imgLenteKodak .compare-modeKodak{
     width: 100%;
     justify-content: space-around;
 }
-.compare-mode{
+.compare-mode, .compare-modeKodak{
     justify-content: center;
     align-items: center;
 }
 /* Estilo das imagens quando em modo de comparação */
-.compare-mode .imgLente img {
+.compare-mode .imgLente img, .imgLenteKodak img {
     max-width: 250px;
     margin: 10px;
 }
@@ -223,14 +214,14 @@ header{
     text-align: center;
 }
 
-.imgLente {
+.imgLente, .imgLenteKodak {
     display: flex;
     justify-content: center;
 }
 .imgLente img {
     max-width: 250px;
 }
-.infoLente {
+.infoLente, .infoLenteKodak {
     margin-top: 20px;
 }
 .imgLente {
@@ -239,19 +230,19 @@ header{
     justify-content: center;
     align-items: center;
 }
-.tituloDescVarilux{
+.tituloDescVarilux, .tituloDescKodak{
     font-size: 30px;
     color: var(--secundary-font-color);
     text-align: center;
     margin-bottom: 25px;
 }
-.infoLente{
+.infoLente, .infoLenteKodak{
     display: flex;
     align-items: center;
     flex-direction: column;
     width: 50%;
 }
-.descLente{
+.descLente, .descLenteKodak{
     width: 70%;
     display: flex;
     flex-direction: column;
@@ -322,6 +313,13 @@ header{
 .descTec{
     width: 100%;
     text-align: center;
+}
+
+#tratamentos{
+    width: 100%;
+    height: 500px;
+    background-color: blue;
+    margin: 20px 0px;
 }
 #tecNanoptix{
     width: 100%;
@@ -593,12 +591,12 @@ th, td {
         width: 400px;
         height: 320px;
     }
-    .demoLente{
+    .demoLente, .demoLenteKodak{
         flex-direction: column;
         justify-content: center;
         align-items: center;
     }
-    .infoLente{
+    .infoLente, .infoLenteKodak{
         width: 100%;
     }
     .card{
@@ -615,13 +613,13 @@ th, td {
         width: 250px;
         padding: 15px;
     }
-    .compare-mode .imgLente {
+    .compare-mode .imgLente, .compare-modeKodak .imgLenteKodak {
         flex-direction: column;
     }
     .tecnologiasLente img{
         width: 80px;
     }
-    #btnComparar {
+    #btnComparar, #btnCompararKodak {
         margin: 0px 15px;
     }
 }
@@ -656,8 +654,4 @@ th, td {
         padding: 10px;
         text-align: left;
     }   
-    
-    .thFone{
-        width: 100px;
-    }
 }

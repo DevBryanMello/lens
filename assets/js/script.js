@@ -63,6 +63,9 @@ const slider = document.getElementById('slider');
         slider.style.left = `${x}px`;
     });
 
+
+
+    //mostrar as lentes
     document.addEventListener('DOMContentLoaded', () => {
         // Seleção de elementos
         const listItems = document.querySelectorAll('.bodyVarilux ul li');
@@ -114,6 +117,83 @@ const slider = document.getElementById('slider');
             const lensDisplay = document.querySelector('.demoLente');
             infoLente.style.display = 'none';
             lensDisplay.classList.toggle('compare-mode');
+
+            compareModeActive = !compareModeActive;
+
+            // Resetar seleção de lentes ao desativar comparação
+            if (!compareModeActive) {
+                lenteImg2.style.display = 'none';
+                infoLente.style.display = 'flex';
+                firstLensSelected = false;
+            }
+        });
+
+        // Evento para cada item da lista
+        listItems.forEach(item => {
+            item.addEventListener('click', () => {
+                // Recuperar atributos do item clicado
+                const imgSrc = item.getAttribute('data-img');
+                const title = item.getAttribute('data-title');
+                const desc = item.getAttribute('data-desc');
+                const tecImages = item.getAttribute('data-tec'); // Imagens das tecnologias
+
+                // Exibir lente com base nos dados recuperados
+                showLens(imgSrc, title, desc, tecImages);
+            });
+        });
+    });
+
+    document.addEventListener('DOMContentLoaded', () => {
+        // Seleção de elementos
+        const listItems = document.querySelectorAll('.bodyKodak ul li');
+        const lenteImg1 = document.getElementById('lenteImgKodak1');
+        const lenteImg2 = document.getElementById('lenteImgKodak2');
+        const lenteTitle = document.getElementById('lenteTitleKodak');
+        const lenteDesc = document.getElementById('lenteDescKodak');
+        const lenteTecContainer = document.getElementById('lenteTec');
+        const compareButton = document.getElementById('btnCompararKodak');
+
+        let firstLensSelected = false;  // Controla se a primeira lente já foi selecionada
+        let compareModeActive = false;  // Controla se o modo de comparação está ativo
+
+        // Função para exibir as informações da lente
+        function showLens(imgSrc, title, desc, tecImages) {
+            if (!firstLensSelected || !compareModeActive) {
+                // Exibir a primeira lente
+                lenteImg1.src = imgSrc;
+                lenteImg1.style.display = 'block';
+                lenteImg2.style.display = 'none';
+                firstLensSelected = true;
+
+                // Atualizar informações da primeira lente
+                lenteTitle.textContent = title;
+                lenteDesc.textContent = desc;
+
+                // Atualizar tecnologias
+                lenteTecContainer.innerHTML = ''; // Limpar tecnologias anteriores
+                if (tecImages) {
+                    const tecList = tecImages.split(',');
+                    tecList.forEach(tecSrc => {
+                        const imgElement = document.createElement('img');
+                        imgElement.src = tecSrc.trim();
+                        imgElement.alt = `Tecnologia da Lente: ${title}`;
+                        imgElement.classList.add('imgTecnologia'); // Classe CSS para estilização
+                        lenteTecContainer.appendChild(imgElement);
+                    });
+                }
+            } else {
+                // Exibir a segunda lente ao lado da primeira
+                lenteImg2.src = imgSrc;
+                lenteImg2.style.display = 'block';
+            }
+        }
+
+        // Evento para alternar o modo de comparação
+        compareButton.addEventListener('click', () => {
+            const infoLente = document.querySelector('.infoLenteKodak');
+            const lensDisplay = document.querySelector('.demoLenteKodak');
+            infoLente.style.display = 'none';
+            lensDisplay.classList.toggle('compare-modeKodak');
 
             compareModeActive = !compareModeActive;
 
@@ -231,19 +311,28 @@ function displayClientes(clientes){
 function editarBtn(){
     const tipoSelect = document.getElementById('type').value;
     const id = document.getElementById('clientesEdit');
+    const btnEnviarForm = document.getElementById('btnEnviarForm');
+    const btnSalvarEdit = document.getElementById("btnSalvarEdit");
+
     if(tipoSelect == 'edit'){
-        id.style.display = 'flex';    
+        id.style.display = 'flex';
+        btnEnviarForm.style.display = 'none';
+        btnSalvarEdit.style.display = 'flex';
         editarInfo();
     }else {
         id.style.display = 'none';
     }
 }
 
-function editarInfo(){
+let clientesData = {}; // Armazena os dados dos clientes
+
+function editarInfo() {
+
     const data = {
-        type:'getfull',
+        type: 'getfull',
         hash: 'hash_93867748421653f930d1fec5f38b0f6b'
     };
+
     // Converte os dados para o formato application/x-www-form-urlencoded
     const postData = new URLSearchParams(data).toString();
 
@@ -260,17 +349,43 @@ function editarInfo(){
     })
     .then(response => response.json()) // Converte a resposta para JSON
     .then(json => {
-        // Você pode manipular o JSON aqui, por exemplo, exibir em algum lugar da página
- 
+        // Limpa a lista de opções
         const bodyTabela = document.getElementById("clientesEdit");
         bodyTabela.innerHTML = '';
-    
+
+        const emptyOption = document.createElement('option');
+        emptyOption.value = ""; // O valor pode ser uma string vazia
+        emptyOption.textContent = "Selecione um cliente"; // Texto que será exibido
+        bodyTabela.appendChild(emptyOption); // Adiciona o option vazio no select
+
+        // Armazena os dados dos clientes
         json.data.forEach(c => {
-            const coluna = document.createElement('option');
-            coluna.innerHTML = `
-                <option value='${c.idClient}'>${c.nome}</option>
-            `;
-            clientesEdit.appendChild(coluna);
+            // Cria uma nova opção para o select
+            const option = document.createElement('option');
+            option.value = c.idClient;
+            option.textContent = c.nome;
+        
+            // Adiciona a opção no select
+            bodyTabela.appendChild(option);
+        
+            // Armazena o cliente no objeto clientesData
+            clientesData[c.idClient] = c;
+        });
+        
+        // Adiciona evento para quando o cliente for selecionado
+        bodyTabela.addEventListener('change', function() {
+            const selectedId = this.value; // Obtém o ID do cliente selecionado
+            if (clientesData[selectedId]) {
+                // Preenche os campos do formulário com os dados do cliente
+                document.getElementById("nome").value = clientesData[selectedId].nome;
+                document.getElementById("telefone").value = clientesData[selectedId].telefone;
+                document.getElementById("why").value = clientesData[selectedId].why; // Supondo que "why" seja o campo de orçamento
+            } else {
+                // Limpa os campos do formulário se a opção vazia for selecionada
+                document.getElementById("nome").value = "";
+                document.getElementById("telefone").value = "";
+                document.getElementById("why").value = "";
+            }
         });
     })
     .catch(error => {
@@ -278,14 +393,48 @@ function editarInfo(){
     });
 }
 
-function editarDados(){
-    const tipoSelect = document.getElementById('type').value;
-    const id = document.getElementById('clientesEdit');
-    if(tipoSelect == 'edit'){
-        id.style.display = 'flex';    
-        editarInfo();
+function editarDados() {
+        const selectedId = document.getElementById('clientesEdit').value;
+
+        if (!selectedId) {
+            alert("Selecione um cliente para editar.");
+            return;
+        }
+
+        // Obtém os valores dos campos do formulário
+        const data = {
+            hash: 'hash_93867748421653f930d1fec5f38b0f6b',
+            type: document.getElementById('type').value,
+            ref: selectedId, // Inclui o ID do cliente para edição
+            nome: document.getElementById('nome').value,
+            telefone: document.getElementById('telefone').value,
+            why: document.getElementById('why').value,
+        };
+        console.log(data);
+
+        // Converte os dados para o formato application/x-www-form-urlencoded
+        const postData = new URLSearchParams(data).toString();
         
-    }else {
-        id.style.display = 'none';
+        // URL da API
+        const url = 'https://meubannersites.com.br/api/bryan/v1/serialize';
+        
+        // Faz a requisição POST
+        fetch(url, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded'
+            },
+            body: postData
+        })
+        .then(response => response.json()) // Converte a resposta para JSON
+        .then(json => {
+
+            const select = document.getElementById("clientesEdit");
+            if (json.status === '200') {
+                alert("Dados editados com sucesso!");                   
+                document.getElementById('myForm').reset();
+                window.location.href = 'index.html';
+            }
+        })
+        
     }
-}
