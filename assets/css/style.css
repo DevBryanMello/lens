@@ -120,15 +120,6 @@ header{
     color: var(--primary-background-color);
 }
 
-#lensKodak{
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    margin: 20px 0px;
-}
-
 #lensVarilux{
     width: 100%;
     display: flex;
@@ -136,13 +127,21 @@ header{
     margin-top: 20px;
     background-image: radial-gradient(circle at center center, rgb(71, 71, 71),rgb(8, 8, 8));
 }
-.cabecalhoVarilux{
+#lensKodak{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    font-family: Arial, Helvetica, sans-serif !important;
+    background-image: radial-gradient(circle at top right, rgb(145, 8, 41) 0%, rgb(145, 8, 41) 22%,rgb(156, 9, 37) 22%, rgb(156, 9, 37) 38%,rgb(167, 9, 34) 38%, rgb(167, 9, 34) 39%,rgb(178, 10, 30) 39%, rgb(178, 10, 30) 43%,rgb(188, 10, 26) 43%, rgb(188, 10, 26) 64%,rgb(199, 11, 22) 64%, rgb(199, 11, 22) 96%,rgb(210, 11, 19) 96%, rgb(210, 11, 19) 99%,rgb(221, 12, 15) 99%, rgb(221, 12, 15) 100%);
+}
+.cabecalhoVarilux, .cabecalhoKodak{
     width: 100%;
     display: flex;
     justify-content: center;
     margin-top: 20px;
 }
-.cabecalhoVarilux h1{
+.cabecalhoVarilux h1, .cabecalhoKodak h1{
     font-size: 28px;
     text-align: center;
     color: var(--primary-font-color);
@@ -152,20 +151,20 @@ header{
     font-family: "Hurme Geometric Sans";
     font-weight: 600;
 }
-.bodyVarilux{
+.bodyVarilux, .bodyKodak{
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     margin-bottom: 20px;
 }
-.bodyVarilux ul{
+.bodyVarilux ul, .bodyKodak ul{
     display: flex;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
 }
-.bodyVarilux li {
+.bodyVarilux li, .bodyKodak li {
     list-style: none;
     margin: 15px;
     padding: 10px;
@@ -175,13 +174,13 @@ header{
     border-radius: 8px;
     font-family: "Hurme Geometric Sans";
 }
-.demoLente{
+.demoLente, .demoLenteKodak{
     width: 100%;
     display: flex;
     justify-content: space-around;
     margin-bottom: 20px;
 }
-#btnComparar{
+#btnComparar, #btnCompararKodak{
     width: 180px;
     max-height: fit-content;
     padding: 10px;
@@ -197,16 +196,16 @@ header{
     font-size: 16px;
 }
 /* Estilo para quando a comparação estiver ativada */
-.compare-mode .imgLente {
+.compare-mode .imgLente, .imgLenteKodak .compare-modeKodak{
     width: 100%;
     justify-content: space-around;
 }
-.compare-mode{
+.compare-mode, .compare-modeKodak{
     justify-content: center;
     align-items: center;
 }
 /* Estilo das imagens quando em modo de comparação */
-.compare-mode .imgLente img {
+.compare-mode .imgLente img, .imgLenteKodak img {
     max-width: 250px;
     margin: 10px;
 }
@@ -215,14 +214,14 @@ header{
     text-align: center;
 }
 
-.imgLente {
+.imgLente, .imgLenteKodak {
     display: flex;
     justify-content: center;
 }
 .imgLente img {
     max-width: 250px;
 }
-.infoLente {
+.infoLente, .infoLenteKodak {
     margin-top: 20px;
 }
 .imgLente {
@@ -231,19 +230,19 @@ header{
     justify-content: center;
     align-items: center;
 }
-.tituloDescVarilux{
+.tituloDescVarilux, .tituloDescKodak{
     font-size: 30px;
     color: var(--secundary-font-color);
     text-align: center;
     margin-bottom: 25px;
 }
-.infoLente{
+.infoLente, .infoLenteKodak{
     display: flex;
     align-items: center;
     flex-direction: column;
     width: 50%;
 }
-.descLente{
+.descLente, .descLenteKodak{
     width: 70%;
     display: flex;
     flex-direction: column;
@@ -316,7 +315,64 @@ header{
     text-align: center;
 }
 
-
+#tratamentos{
+    width: 100%;
+    margin: 20px 0px;
+}
+.containerCrizal{
+    background-image: radial-gradient(circle at center center, rgba(33,33,33,0),rgb(33,33,33)),repeating-linear-gradient(135deg, rgb(33,33,33) 0px, rgb(33,33,33) 1px,transparent 1px, transparent 4px),repeating-linear-gradient(45deg, rgb(56,56,56) 0px, rgb(56,56,56) 5px,transparent 5px, transparent 6px),linear-gradient(90deg, rgb(33,33,33),rgb(33,33,33));
+}
+.containerPolarizada{
+    background-image: repeating-linear-gradient(90deg, hsla(57,0%,42%,0.09) 0px, hsla(57,0%,42%,0.09) 1px,transparent 1px, transparent 60px),repeating-linear-gradient(0deg, hsla(57,0%,42%,0.09) 0px, hsla(57,0%,42%,0.09) 1px,transparent 1px, transparent 60px),repeating-linear-gradient(0deg, hsla(57,0%,42%,0.09) 0px, hsla(57,0%,42%,0.09) 1px,transparent 1px, transparent 10px),repeating-linear-gradient(90deg, hsla(57,0%,42%,0.09) 0px, hsla(57,0%,42%,0.09) 1px,transparent 1px, transparent 10px),linear-gradient(90deg, rgb(20,20,20),rgb(20,20,20));
+}
+.containerTransitions{
+    background-image: linear-gradient(45deg, rgb(33,33,33) 0%,transparent 73%),repeating-linear-gradient(90deg, rgba(127, 127, 127,0.1) 0px, rgba(127, 127, 127,0.1) 1px,transparent 1px, transparent 17px),repeating-linear-gradient(0deg, rgba(127, 127, 127,0.1) 0px, rgba(127, 127, 127,0.1) 1px,transparent 1px, transparent 17px),linear-gradient(0deg, rgb(33,33,33),rgb(33,33,33));
+}
+.descCrizal {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin: 20px 0px;
+}
+.radius{
+    overflow: hidden;
+    border-radius: 20px; 
+}
+.descPolarizada, .descTransitions{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.descCrizal h3, .descPolarizada h3, .descTransitions h3 {
+    width: 30%;
+    color: var(--primary-font-color);
+}
+.containerCrizal, .containerPolarizada, .containerTransitions{
+    width: 100%;
+}
+.tituloCrizal,.tituloPolarizada, .tituloTransitions{
+    text-align: center;
+    width: 100%;
+    font-size: 30px;
+    margin: 15px 0px;
+    color: var(--primary-font-color);
+}
+.imgCrizal, .imgPolarizada, .imgTransitions {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+.imgCrizal img, .imgPolarizada img, .imgTransitions img {
+    width: 50%;
+    max-width: 700px;
+    max-height: 380px;
+    margin-bottom: 20px;
+    object-fit: contain;
+}
 #tecNanoptix{
     width: 100%;
     display: flex;
@@ -556,6 +612,21 @@ th, td {
 
 }
 
+@media screen and (max-width:1024px){
+    .imgCrizal img, .imgPolarizada img, .imgTransitions img {
+        width: 60%;
+        height: 350px;
+        border-radius: 30px;
+        margin-bottom: 40px;
+        object-fit: contain;
+        box-shadow: none;
+    }
+    .descCrizal h3 {
+        width: 30%;
+        font-size: 16px;
+    }
+}
+
 
 @media screen and (max-width: 885px){
     .menu-desktop{
@@ -581,6 +652,26 @@ th, td {
         width: 50%;
         margin: 15px;
     }
+    .tituloCrizal, .tituloPolarizada, .tituloTransitions {
+        font-size: 25px;
+        margin-top: 20px;
+    }
+    .descCrizal,.descPolarizada, .descTransitions{
+        flex-direction: column;
+    }
+    .descCrizal h3, .descPolarizada h3, .descTransitions h3{
+        width: 90%;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    .imgCrizal img, .imgPolarizada img, .imgTransitions img {
+        width: 80%;
+        height: auto;
+        border-radius: 30px;
+        margin-bottom: 40px;
+        object-fit: cover;
+        box-shadow: 0px 0px 6px 2px rgba(255, 255, 255, 0.3);
+    }
 
 }
 @media screen and (max-width: 590px){
@@ -588,12 +679,12 @@ th, td {
         width: 400px;
         height: 320px;
     }
-    .demoLente{
+    .demoLente, .demoLenteKodak{
         flex-direction: column;
         justify-content: center;
         align-items: center;
     }
-    .infoLente{
+    .infoLente, .infoLenteKodak{
         width: 100%;
     }
     .card{
@@ -610,14 +701,23 @@ th, td {
         width: 250px;
         padding: 15px;
     }
-    .compare-mode .imgLente {
+    .compare-mode .imgLente, .compare-modeKodak .imgLenteKodak {
         flex-direction: column;
     }
     .tecnologiasLente img{
         width: 80px;
     }
-    #btnComparar {
+    #btnComparar, #btnCompararKodak {
         margin: 0px 15px;
+    }
+    .tituloCrizal, .tituloPolarizada, .tituloTransitions {
+        font-size: 20px;
+    }
+    .imgCrizal img, .imgPolarizada img, .imgTransitions img {
+        width: 90%;
+        height: auto;
+        object-fit: contain;
+        border-radius: 10px;
     }
 }
 @media screen and (max-width:425px){
@@ -651,8 +751,7 @@ th, td {
         padding: 10px;
         text-align: left;
     }   
-    
-    .thFone{
-        width: 100px;
+    .imgCrizal,.imgPolarizada, .imgTransitions{
+        border-radius: 10px;
     }
 }
