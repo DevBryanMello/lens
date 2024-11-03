@@ -194,6 +194,7 @@ fetch(url, {
     if (data.type === 'getfull') {
         // Exibir todos os clientes no caso de 'getfull'
         displayClientes(json.data);
+        
     } else {
         // Exibe a resposta da ação no console (para debug)
         console.log(json);
@@ -210,6 +211,8 @@ document.getElementById('myForm').reset();
 
 function displayClientes(clientes){
     const bodyTabela = document.getElementById("clientesbodyTabela");
+    const tabela = document.getElementById("tabela");
+    tabela.style.display = 'table';
     bodyTabela.innerHTML = '';
 
     clientes.forEach(cliente => {
