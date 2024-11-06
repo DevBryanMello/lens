@@ -274,7 +274,11 @@ fetch(url, {
     if (data.type === 'getfull') {
         // Exibir todos os clientes no caso de 'getfull'
         displayClientes(json.data);
+<<<<<<< HEAD
+        
+=======
 
+>>>>>>> a319f88ec88161d316a4215fcb9036b3eb8ae69b
     } else {
         // Exibe a resposta da ação no console (para debug)
         console.log(json);
